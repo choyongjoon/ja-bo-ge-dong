@@ -1,0 +1,9 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "for web project",
+  "main": "index.js",
+  "repository": "https://github.com/choyongjoon/base",
+  "author": "Cho, Yongjun <w2000wkd@gmail.com>",
+  "license": "MIT"
+}
