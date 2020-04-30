@@ -1,9 +1,16 @@
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const path = require("path")
 
 module.exports = {
   entry: {
     main: ["react-hot-loader/patch", "./src/index.tsx"],
+  },
+  output: {
+    path: path.join(__dirname, "dist"),
+    publicPath: "/",
+    filename: "[name].[hash:8].js",
+    chunkFilename: "[name].[hash:8].js",
   },
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
