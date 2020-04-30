@@ -6,8 +6,9 @@
   "author": "Cho, Yongjun <w2000wkd@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --config webpack.dev.js"
+    "postbuild": "react-snap"
   },
   "browserslist": "defaults",
   "dependencies": {
@@ -44,6 +45,7 @@
     "husky": "^4.2.5",
     "prettier": "2.0.5",
     "react-axe": "^3.4.1",
+    "react-snap": "^1.23.0",
     "stylelint": "^13.3.3",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
@@ -60,5 +62,9 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "reactSnap": {
+    "source": "dist",
+    "inlineCss": true
   }
 }
