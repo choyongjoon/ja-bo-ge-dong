@@ -66,6 +66,10 @@
   },
   "reactSnap": {
     "source": "dist",
-    "inlineCss": true
+    "inlineCss": true,
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }
