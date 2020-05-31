@@ -17,7 +17,8 @@
     "react": "^16.13.1",
     "react-dom": "npm:@hot-loader/react-dom",
     "react-hot-loader": "^4.12.21",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "tailwind.macro": "^1.0.0-alpha.10"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -37,6 +38,8 @@
     "copy-webpack-plugin": "^5.1.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-import-helpers": "^1.0.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",

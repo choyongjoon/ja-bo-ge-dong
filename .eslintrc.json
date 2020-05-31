@@ -25,6 +25,9 @@
   },
   "plugins": ["@typescript-eslint", "import-helpers", "react", "react-hooks"],
   "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
     "import-helpers/order-imports": [
       "warn",
       {
@@ -32,6 +35,7 @@
         "groups": ["module", "parent", "sibling"],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
-    ]
+    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   }
 }
