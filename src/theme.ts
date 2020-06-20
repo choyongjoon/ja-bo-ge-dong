@@ -6,6 +6,10 @@ const theme: DefaultTheme = {
   colors: {
     main: "black",
     secondary: "magenta",
+    red: "#e34f35",
+    blue: "#3697e1",
+    yellow: "#f0c400",
+    green: "#47cb66",
   },
 }
 

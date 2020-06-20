@@ -26,6 +26,7 @@
   "plugins": ["@typescript-eslint", "import-helpers", "react", "react-hooks"],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-use-before-define": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import-helpers/order-imports": [
