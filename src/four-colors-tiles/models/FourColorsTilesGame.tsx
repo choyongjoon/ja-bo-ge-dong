@@ -12,6 +12,11 @@ class FourColorsTilesGame {
     this.players = this.colors.map((color) => new FourColorsTilesPlayer(color))
     this.board = new FourColorsTilesBoard(this.colors)
   }
+
+  public init = () => {
+    // this.players.forEach(player => player.init());
+    // this.board.init();
+  }
 }
 
 export default FourColorsTilesGame

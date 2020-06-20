@@ -8,4 +8,12 @@ describe("FourColorsTilesGame", () => {
       expect(game).toBeInstanceOf(FourColorsTilesGame)
     })
   })
+
+  describe("init()", () => {
+    it("호출시 에러가 발생하지 않아야 한다.", () => {
+      const game = new FourColorsTilesGame()
+
+      game.init()
+    })
+  })
 })
