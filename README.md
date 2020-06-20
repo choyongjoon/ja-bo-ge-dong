@@ -1,17 +1,9 @@
-# Base
+# 자보게동 (자작 보드게임 동아리)
 
-- typescript
-- react
-- styled-components
+만화 '자작 보드게임 동아리'에 나오는 게임들을 만듭니다. (비공식 팬 사이트)
 
-## Bundling
+## 만든 게임
 
-- webpack
-- babel
-
-## Helpers
-
-- esLint
-- prettier
-- stylelint
-- commitlint
+- 사색타일
+  - [모바일](https://m.comic.naver.com/bestChallenge/detail.nhn?titleId=734597&no=11)
+  - [PC](https://comic.naver.com/bestChallenge/detail.nhn?titleId=734597&no=11)
