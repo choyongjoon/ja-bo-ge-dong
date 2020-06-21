@@ -45,6 +45,7 @@
       }
     ],
     "no-plusplus": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "react/prop-types": "off"
   }
 }

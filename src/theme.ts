@@ -10,6 +10,8 @@ const theme: DefaultTheme = {
     blue: "#3697e1",
     yellow: "#f0c400",
     green: "#47cb66",
+    boardBackground: "black",
+    boardEmptyZone: "white",
   },
 }
 

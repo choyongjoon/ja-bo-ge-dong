@@ -11,6 +11,8 @@ declare module "styled-components" {
       blue: string
       yellow: string
       green: string
+      boardBackground: string
+      boardEmptyZone: string
     }
   }
 }

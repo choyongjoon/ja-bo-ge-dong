@@ -1,5 +1,7 @@
 import React, { FC } from "react"
 
+import FourColorsTilesBoardBox from "./components/FourColorsTilesBoardBox"
+
 const FourColorsTilesArticle: FC = () => {
   return (
     <article>
@@ -14,6 +16,7 @@ const FourColorsTilesArticle: FC = () => {
         </li>
       </ul>
       <h3>게임 하기</h3>
+      <FourColorsTilesBoardBox />
     </article>
   )
 }
