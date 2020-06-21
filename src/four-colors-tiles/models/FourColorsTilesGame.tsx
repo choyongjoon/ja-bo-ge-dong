@@ -4,20 +4,20 @@ import FourColorsTilesBoard from "./FourColorsTilesBoard"
 import FourColorsTilesPlayer from "./FourColorsTilesPlayer"
 
 class FourColorsTilesGame {
-  private players: FourColorsTilesPlayer[]
+  board: FourColorsTilesBoard
 
-  private board: FourColorsTilesBoard
+  players: FourColorsTilesPlayer[]
 
   constructor() {
+    this.board = new FourColorsTilesBoard(fourColorsTilesColors)
     this.players = fourColorsTilesColors.map(
       (color) => new FourColorsTilesPlayer(color)
     )
-    this.board = new FourColorsTilesBoard(fourColorsTilesColors)
   }
 
   public init = () => {
+    this.board.init()
     // this.players.forEach(player => player.init());
-    // this.board.init();
   }
 }
 

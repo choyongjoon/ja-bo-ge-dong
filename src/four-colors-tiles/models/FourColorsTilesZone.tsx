@@ -1,24 +1,22 @@
+import { observable, action } from "mobx"
+
 import { FourColorsTilesColors } from "../constants/fourColorsTilesColors"
 
 class FourColorsTilesZone {
-  #isBlocked = false
+  @observable
+  isBlocked = false
 
-  #color?: FourColorsTilesColors
+  @observable
+  color?: FourColorsTilesColors
 
-  get isBlocked() {
-    return this.#isBlocked
-  }
-
-  get color() {
-    return this.#color
-  }
-
+  @action
   block = () => {
-    this.#isBlocked = true
+    this.isBlocked = true
   }
 
+  @action
   setColor = (color: FourColorsTilesColors) => {
-    this.#color = color
+    this.color = color
   }
 }
 

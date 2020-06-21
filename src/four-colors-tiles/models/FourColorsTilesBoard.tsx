@@ -1,3 +1,5 @@
+import { observable } from "mobx"
+
 import fourColorsTilesColors, {
   FourColorsTilesColors,
 } from "../constants/fourColorsTilesColors"
@@ -7,6 +9,7 @@ import FourColorsTilesZone from "./FourColorsTilesZone"
 class FourColorsTilesBoard {
   static readonly size = 6
 
+  @observable
   zoneMatrix: FourColorsTilesZone[][]
 
   #colors: FourColorsTilesColors[]

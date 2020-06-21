@@ -1,21 +1,34 @@
+import { observer } from "mobx-react"
 import React, { FC } from "react"
 import styled from "styled-components"
 
+import { useFourColorsTilesContext } from "../FourColorsTilesProvider"
+
 import FourColorsTilesZoneBox from "./FourColorsTilesZoneBox"
 
-const FourColorsTilesBoardBox: FC = () => {
+const FourColorsTilesBoardBox: FC = observer(() => {
+  const { game } = useFourColorsTilesContext()
+  const { zoneMatrix } = game.board
+
   return (
     <StyledFourColorsTilesBoardBox>
       <Content>
         <Grid>
-          {[...new Array(64)].map((x, i) => (
-            <FourColorsTilesZoneBox key={i} numColumns={8} />
-          ))}
+          {zoneMatrix.map((row, i) =>
+            row.map((zone, j) => (
+              <FourColorsTilesZoneBox
+                // eslint-disable-next-line react/no-array-index-key
+                key={`(${i},${j})`}
+                numColumns={row.length}
+                zone={zone}
+              />
+            ))
+          )}
         </Grid>
       </Content>
     </StyledFourColorsTilesBoardBox>
   )
-}
+})
 
 export default FourColorsTilesBoardBox
 
