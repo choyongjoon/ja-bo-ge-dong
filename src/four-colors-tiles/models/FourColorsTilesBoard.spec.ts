@@ -39,12 +39,10 @@ describe("FourColorsTilesBoard", () => {
 
     board.init()
 
-    const countByColors = {
-      [fourColorsTilesColors[0]]: 0,
-      [fourColorsTilesColors[1]]: 0,
-      [fourColorsTilesColors[2]]: 0,
-      [fourColorsTilesColors[3]]: 0,
-    }
+    const countByColors = fourColorsTilesColors.reduce(
+      (prev, color) => ({ ...prev, [color]: 0 }),
+      {}
+    )
 
     const { zoneMatrix } = board
     const { size } = FourColorsTilesBoard
@@ -57,10 +55,9 @@ describe("FourColorsTilesBoard", () => {
       countByColors[zoneMatrix[i][matrixSize - 1].color] += 1
     }
 
-    expect(countByColors[fourColorsTilesColors[0]]).toBe(size)
-    expect(countByColors[fourColorsTilesColors[1]]).toBe(size)
-    expect(countByColors[fourColorsTilesColors[2]]).toBe(size)
-    expect(countByColors[fourColorsTilesColors[3]]).toBe(size)
+    fourColorsTilesColors.forEach((color) => {
+      expect(countByColors[color]).toBe(size)
+    })
   })
 
   it("zoneMatrix의 나머지 내부 zone들의 색상은 undefined여야 한다.", () => {

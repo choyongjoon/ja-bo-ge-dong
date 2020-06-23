@@ -46,12 +46,9 @@ class FourColorsTilesBoard {
     const { size } = FourColorsTilesBoard
     const matrixSize = size + 2
 
-    const randomColors = [
-      ...new Array(size).fill(fourColorsTilesColors[0]),
-      ...new Array(size).fill(fourColorsTilesColors[1]),
-      ...new Array(size).fill(fourColorsTilesColors[2]),
-      ...new Array(size).fill(fourColorsTilesColors[3]),
-    ]
+    const randomColors = fourColorsTilesColors.flatMap((color) =>
+      new Array(size).fill(color)
+    )
 
     for (let i = 0; i < randomColors.length; i++) {
       const randomIndex = Math.floor(Math.random() * (i + 1))
