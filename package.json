@@ -19,6 +19,7 @@
     "react": "^16.13.1",
     "react-dom": "npm:@hot-loader/react-dom",
     "react-hot-loader": "^4.12.21",
+    "sanitize.css": "^11.0.1",
     "styled-components": "^5.1.0",
     "tailwind.macro": "^1.0.0-alpha.10"
   },
@@ -39,6 +40,7 @@
     "babel-plugin-styled-components": "^1.10.7",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.6.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -55,6 +57,7 @@
     "prettier": "2.0.5",
     "react-axe": "^3.4.1",
     "react-snap": "^1.23.0",
+    "style-loader": "^1.2.1",
     "stylelint": "^13.3.3",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",

@@ -2,6 +2,8 @@ import React, { FC } from "react"
 import { hot } from "react-hot-loader/root"
 import { ThemeProvider } from "styled-components"
 
+import "sanitize.css"
+
 import FourColorsTilesProvider from "./four-colors-tiles/FourColorsTilesProvider"
 import GlobalStyle from "./GlobalStyle"
 import theme from "./theme"
