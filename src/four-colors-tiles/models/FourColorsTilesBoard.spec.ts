@@ -3,10 +3,14 @@ import fourColorsTilesColors from "../constants/fourColorsTilesColors"
 import FourColorsTilesBoard from "./FourColorsTilesBoard"
 
 describe("FourColorsTilesBoard", () => {
+  let board = new FourColorsTilesBoard()
+
+  beforeEach(() => {
+    board = new FourColorsTilesBoard()
+  })
+
   describe("init()", () => {
     it("zoneMatrix가 N x N 행렬이 되어야 한다. (N: FourColorsTilesBoard.size + 2)", () => {
-      const board = new FourColorsTilesBoard(fourColorsTilesColors)
-
       board.init()
 
       const { zoneMatrix } = board
@@ -20,23 +24,19 @@ describe("FourColorsTilesBoard", () => {
   })
 
   it("zoneMatrix의 네 모서리가 blocked 상태여야 한다.", () => {
-    const board = new FourColorsTilesBoard(fourColorsTilesColors)
-
     board.init()
 
     const { zoneMatrix } = board
     const { size } = FourColorsTilesBoard
     const matrixSize = size + 2
 
-    expect(zoneMatrix[0][0].isBlocked).toBe(true)
-    expect(zoneMatrix[0][matrixSize - 1].isBlocked).toBe(true)
-    expect(zoneMatrix[matrixSize - 1][0].isBlocked).toBe(true)
-    expect(zoneMatrix[matrixSize - 1][matrixSize - 1].isBlocked).toBe(true)
+    expect(zoneMatrix[0][0].state).toBe("blocked")
+    expect(zoneMatrix[0][matrixSize - 1].state).toBe("blocked")
+    expect(zoneMatrix[matrixSize - 1][0].state).toBe("blocked")
+    expect(zoneMatrix[matrixSize - 1][matrixSize - 1].state).toBe("blocked")
   })
 
   it("zoneMatrix의 네 변에 각 색상이 N개씩 채워져 있어야 한다.", () => {
-    const board = new FourColorsTilesBoard(fourColorsTilesColors)
-
     board.init()
 
     const countByColors = fourColorsTilesColors.reduce(
@@ -61,8 +61,6 @@ describe("FourColorsTilesBoard", () => {
   })
 
   it("zoneMatrix의 나머지 내부 zone들의 색상은 undefined여야 한다.", () => {
-    const board = new FourColorsTilesBoard(fourColorsTilesColors)
-
     board.init()
 
     const { zoneMatrix } = board

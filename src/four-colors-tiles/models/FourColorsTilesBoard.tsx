@@ -1,8 +1,6 @@
-import { observable } from "mobx"
+import { observable, action } from "mobx"
 
-import fourColorsTilesColors, {
-  FourColorsTilesColors,
-} from "../constants/fourColorsTilesColors"
+import fourColorsTilesColors from "../constants/fourColorsTilesColors"
 
 import FourColorsTilesZone from "./FourColorsTilesZone"
 
@@ -12,14 +10,11 @@ class FourColorsTilesBoard {
   @observable
   zoneMatrix: FourColorsTilesZone[][]
 
-  #colors: FourColorsTilesColors[]
-
-  constructor(colors: FourColorsTilesColors[]) {
-    this.#colors = colors
-
+  constructor() {
     this.init()
   }
 
+  @action
   init = () => {
     const { size } = FourColorsTilesBoard
     const matrixSize = size + 2
@@ -59,10 +54,10 @@ class FourColorsTilesBoard {
 
     let j = 0
     for (let i = 1; i <= size; i++) {
-      this.zoneMatrix[0][i].setColor(randomColors[j++])
-      this.zoneMatrix[i][0].setColor(randomColors[j++])
-      this.zoneMatrix[matrixSize - 1][i].setColor(randomColors[j++])
-      this.zoneMatrix[i][matrixSize - 1].setColor(randomColors[j++])
+      this.zoneMatrix[0][i].placeTile(randomColors[j++])
+      this.zoneMatrix[i][0].placeTile(randomColors[j++])
+      this.zoneMatrix[matrixSize - 1][i].placeTile(randomColors[j++])
+      this.zoneMatrix[i][matrixSize - 1].placeTile(randomColors[j++])
     }
   }
 }

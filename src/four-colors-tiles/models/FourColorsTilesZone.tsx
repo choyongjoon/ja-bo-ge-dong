@@ -4,19 +4,20 @@ import { FourColorsTilesColors } from "../constants/fourColorsTilesColors"
 
 class FourColorsTilesZone {
   @observable
-  isBlocked = false
+  state: "blocked" | "placed" | "empty" = "empty"
 
   @observable
   color?: FourColorsTilesColors
 
   @action
   block = () => {
-    this.isBlocked = true
+    this.state = "blocked"
   }
 
   @action
-  setColor = (color: FourColorsTilesColors) => {
+  placeTile = (color: FourColorsTilesColors) => {
     this.color = color
+    this.state = "placed"
   }
 }
 

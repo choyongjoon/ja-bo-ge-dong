@@ -1,8 +1,9 @@
 import { observer } from "mobx-react"
-import React, { FC } from "react"
+import React, { FC, useCallback } from "react"
 import styled from "styled-components"
 
 import { FourColorsTilesColors } from "../constants/fourColorsTilesColors"
+import { useFourColorsTilesContext } from "../FourColorsTilesProvider"
 import FourColorsTilesZone from "../models/FourColorsTilesZone"
 
 interface FourColorsTilesZoneBoxProps {
@@ -12,13 +13,17 @@ interface FourColorsTilesZoneBoxProps {
 
 const FourColorsTilesZoneBox: FC<FourColorsTilesZoneBoxProps> = observer(
   ({ numColumns, zone }) => {
-    const { color, isBlocked } = zone
+    const { game } = useFourColorsTilesContext()
+    const { color, state } = zone
+
+    const onClick = useCallback(() => game.tryToPlaceTile(zone), [zone])
 
     return (
       <StyledFourColorsTilesZoneBox
         numColumns={numColumns}
         color={color}
-        isBlocked={isBlocked}
+        isBlocked={state === "blocked"}
+        onClick={onClick}
       >
         <Content />
       </StyledFourColorsTilesZoneBox>
