@@ -16,7 +16,7 @@ const FourColorsTilesZoneBox: FC<FourColorsTilesZoneBoxProps> = observer(
     const { game } = useFourColorsTilesContext()
     const { color, state } = zone
 
-    const onClick = useCallback(() => game.tryToPlaceTile(zone), [zone])
+    const onClick = useCallback(() => game.tryToPlaceTile(zone), [game, zone])
 
     return (
       <StyledFourColorsTilesZoneBox
