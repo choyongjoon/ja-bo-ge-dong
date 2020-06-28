@@ -29,6 +29,12 @@ class FourColorsTilesZone {
     this.color = color
     this.state = "placed"
   }
+
+  @action
+  removeTile = () => {
+    this.color = undefined
+    this.state = "empty"
+  }
 }
 
 export default FourColorsTilesZone

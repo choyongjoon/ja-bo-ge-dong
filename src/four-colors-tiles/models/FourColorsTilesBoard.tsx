@@ -1,4 +1,4 @@
-import { action, computed, observable } from "mobx"
+import { computed, observable } from "mobx"
 
 import fourColorsTilesColors from "../constants/fourColorsTilesColors"
 
@@ -41,6 +41,10 @@ class FourColorsTilesBoard {
   init = () => {
     this.zoneMatrix.forEach((row) => row.forEach((zone) => zone.init()))
     this.initEdgeZones()
+  }
+
+  getZone = (zoneId: string) => {
+    return this.zonesById[zoneId]
   }
 
   private initEdgeZones = () => {
