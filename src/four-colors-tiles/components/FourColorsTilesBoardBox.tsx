@@ -8,18 +8,17 @@ import FourColorsTilesZoneBox from "./FourColorsTilesZoneBox"
 
 const FourColorsTilesBoardBox: FC = observer(() => {
   const { game } = useFourColorsTilesContext()
-  const { board, gameId } = game
+  const { board } = game
   const { zoneMatrix } = board
 
   return (
     <StyledFourColorsTilesBoardBox>
       <Content>
         <Grid>
-          {zoneMatrix.map((row, i) =>
-            row.map((zone, j) => (
+          {zoneMatrix.map((row) =>
+            row.map((zone) => (
               <FourColorsTilesZoneBox
-                // eslint-disable-next-line react/no-array-index-key
-                key={`game-${gameId}-(${i},${j})`}
+                key={zone.id}
                 numColumns={row.length}
                 zone={zone}
               />

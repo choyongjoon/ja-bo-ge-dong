@@ -1,5 +1,3 @@
-import { observable } from "mobx"
-
 import fourColorsTilesColors from "../constants/fourColorsTilesColors"
 
 import FourColorsTilesBoard from "./FourColorsTilesBoard"
@@ -7,9 +5,6 @@ import FourColorsTilesPlayer from "./FourColorsTilesPlayer"
 import FourColorsTilesZone from "./FourColorsTilesZone"
 
 class FourColorsTilesGame {
-  @observable
-  gameId = 0
-
   board: FourColorsTilesBoard
 
   players: FourColorsTilesPlayer[]
@@ -24,7 +19,6 @@ class FourColorsTilesGame {
   }
 
   init = () => {
-    this.gameId++
     this.#currentColorIndex = 0
     this.board.init()
     // this.players.forEach(player => player.init());

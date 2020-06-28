@@ -1,13 +1,23 @@
 import { observable, action } from "mobx"
+import shortid from "shortid"
 
 import { FourColorsTilesColors } from "../constants/fourColorsTilesColors"
 
 class FourColorsTilesZone {
   @observable
+  readonly id = shortid.generate()
+
+  @observable
   state: "blocked" | "placed" | "empty" = "empty"
 
   @observable
   color?: FourColorsTilesColors
+
+  @action
+  init = () => {
+    this.state = "empty"
+    this.color = undefined
+  }
 
   @action
   block = () => {

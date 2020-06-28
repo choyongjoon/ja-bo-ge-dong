@@ -20,6 +20,7 @@
     "react-dom": "npm:@hot-loader/react-dom",
     "react-hot-loader": "^4.12.21",
     "sanitize.css": "^11.0.1",
+    "shortid": "^2.2.15",
     "styled-components": "^5.1.0",
     "tailwind.macro": "^1.0.0-alpha.10"
   },

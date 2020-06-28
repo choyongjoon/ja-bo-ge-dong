@@ -1,4 +1,4 @@
-import { observable, action } from "mobx"
+import { action, computed, observable } from "mobx"
 
 import fourColorsTilesColors from "../constants/fourColorsTilesColors"
 
@@ -8,21 +8,43 @@ class FourColorsTilesBoard {
   static readonly size = 6
 
   @observable
-  zoneMatrix: FourColorsTilesZone[][]
+  private zoneIdMatrix: string[][]
+
+  @observable
+  private zonesById: { [id: string]: FourColorsTilesZone } = {}
 
   constructor() {
-    this.init()
-  }
-
-  @action
-  init = () => {
     const { size } = FourColorsTilesBoard
     const matrixSize = size + 2
 
-    this.zoneMatrix = [...new Array(matrixSize)].map(() =>
+    const zoneMatrix = [...new Array(matrixSize)].map(() =>
       [...new Array(matrixSize)].map(() => new FourColorsTilesZone())
     )
+    this.zoneIdMatrix = zoneMatrix.map((row) => row.map((zone) => zone.id))
+    this.zonesById = {}
+    zoneMatrix.forEach((row) =>
+      row.forEach((zone) => {
+        this.zonesById[zone.id] = zone
+      })
+    )
 
+    this.initEdgeZones()
+  }
+
+  @computed
+  get zoneMatrix() {
+    return this.zoneIdMatrix.map((row) =>
+      row.map((zoneId) => this.zonesById[zoneId])
+    )
+  }
+
+  init = () => {
+    this.zoneMatrix.forEach((row) => row.forEach((zone) => zone.init()))
+    this.initEdgeZones()
+  }
+
+  private initEdgeZones = () => {
+    this.zoneMatrix.forEach((row) => row.forEach((zone) => zone.init()))
     this.blockCornerZones()
     this.putRandomColorsToEdgeZones()
   }

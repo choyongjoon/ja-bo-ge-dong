@@ -8,27 +8,6 @@ describe("FourColorsTilesGame", () => {
     game = new FourColorsTilesGame()
   })
 
-  describe("constructor()", () => {
-    it("gameId가 0이어야 한다.", () => {
-      expect(game.gameId).toBe(0)
-    })
-  })
-
-  describe("init()", () => {
-    it("한 번 불리면 gameId가 1이 되어야 한다.", () => {
-      game.init()
-
-      expect(game.gameId).toBe(1)
-    })
-
-    it("두 번 불리면 gameId가 2가 되어야 한다.", () => {
-      game.init()
-      game.init()
-
-      expect(game.gameId).toBe(2)
-    })
-  })
-
   describe("placeTile()", () => {
     let zone = new FourColorsTilesZone()
 
