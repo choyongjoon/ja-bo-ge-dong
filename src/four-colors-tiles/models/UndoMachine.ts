@@ -14,8 +14,8 @@ class UndoMachine {
   private actionStack: Action[] = []
 
   @computed
-  get isEmptyActionHistory() {
-    return this.actionStack.length === 0
+  get canUndo() {
+    return this.actionStack.length > 0
   }
 
   undo = () => {
@@ -35,12 +35,12 @@ class UndoMachine {
     this.#undoFunctionMap.set(actionType, undoFunction)
   }
 
-  protected pushAction = (actionType: string, payload: {}) => {
-    this.actionStack.push({ type: actionType, payload })
-  }
-
   protected initActionHistory = () => {
     this.actionStack = []
+  }
+
+  protected pushAction = (actionType: string, payload: {}) => {
+    this.actionStack.push({ type: actionType, payload })
   }
 }
 

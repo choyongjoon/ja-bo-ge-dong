@@ -5,7 +5,7 @@ import { FourColorsTilesColors } from "../constants/fourColorsTilesColors"
 
 class FourColorsTilesZone {
   @observable
-  readonly id = shortid.generate()
+  readonly id: string = shortid.generate()
 
   @observable
   state: "blocked" | "placed" | "empty" = "empty"

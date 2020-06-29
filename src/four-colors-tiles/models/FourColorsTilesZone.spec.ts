@@ -1,4 +1,3 @@
-import FourColorsTilesGame from "./FourColorsTilesGame"
 import FourColorsTilesZone from "./FourColorsTilesZone"
 
 describe("FourColorsTilesZone", () => {
@@ -9,6 +8,10 @@ describe("FourColorsTilesZone", () => {
   })
 
   describe("constructor()", () => {
+    it(`id 초기값이 길이가 10이어야 한다.`, () => {
+      expect(zone.id).toHaveLength(10)
+    })
+
     it(`state 초기값이 "empty"가 되어야 한다.`, () => {
       expect(zone.state).toBe("empty")
     })
@@ -41,6 +44,20 @@ describe("FourColorsTilesZone", () => {
       zone.placeTile(color)
 
       expect(zone.state).toBe("placed")
+    })
+  })
+
+  describe("removeTile()", () => {
+    it(`color가 undefined가 되어야 한다.`, () => {
+      zone.removeTile()
+
+      expect(zone.color).toBe(undefined)
+    })
+
+    it(`state가 "empty"가 되어야 한다.`, () => {
+      zone.removeTile()
+
+      expect(zone.state).toBe("empty")
     })
   })
 })

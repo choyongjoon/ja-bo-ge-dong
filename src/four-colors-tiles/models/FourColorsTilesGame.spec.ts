@@ -8,7 +8,17 @@ describe("FourColorsTilesGame", () => {
     game = new FourColorsTilesGame()
   })
 
-  describe("placeTile()", () => {
+  describe("init()", () => {
+    it("this.board.init()을 호출해야 한다.", () => {
+      game.board.init = jest.fn()
+
+      game.init()
+
+      expect(game.board.init).toBeCalled()
+    })
+  })
+
+  describe("tryToPlaceTile()", () => {
     let zone = new FourColorsTilesZone()
 
     beforeEach(() => {
@@ -38,6 +48,20 @@ describe("FourColorsTilesGame", () => {
       game.tryToPlaceTile(zone)
 
       expect(zone.placeTile).toBeCalled()
+    })
+  })
+
+  describe("undo()", () => {
+    it(`tryToPlaceTile() 후 undo() 했을 때, zone의 color와 state가 초기값과 같아야 한다.`, () => {
+      const zone = game.board.zoneMatrix[1][1]
+      const initialColor = zone.color
+      const initialState = zone.state
+      game.tryToPlaceTile(zone)
+
+      game.undo()
+
+      expect(zone.color).toBe(initialColor)
+      expect(zone.state).toBe(initialState)
     })
   })
 })
