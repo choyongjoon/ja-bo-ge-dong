@@ -56,12 +56,24 @@ describe("FourColorsTilesGame", () => {
       const zone = game.board.zoneMatrix[1][1]
       const initialColor = zone.color
       const initialState = zone.state
-      game.tryToPlaceTile(zone)
 
+      game.tryToPlaceTile(zone)
       game.undo()
 
       expect(zone.color).toBe(initialColor)
       expect(zone.state).toBe(initialState)
+    })
+
+    it(`tryToPlaceTile(), undo(), tryToPlaceTile() 했을 때, 첫번째 호출시와 세번째 호출시 zone의 color가 서로 같아야 한다.`, () => {
+      const zone = game.board.zoneMatrix[1][1]
+
+      game.tryToPlaceTile(zone)
+      const firstColor = zone.color
+      game.undo()
+      game.tryToPlaceTile(zone)
+      const secondColor = zone.color
+
+      expect(secondColor).toBe(firstColor)
     })
   })
 })

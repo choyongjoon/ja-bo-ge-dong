@@ -50,9 +50,15 @@ class FourColorsTilesGame extends UndoMachine {
       (this.#currentColorIndex + 1) % fourColorsTilesColors.length
   }
 
+  private restartPrevTurn = () => {
+    this.#currentColorIndex =
+      (this.#currentColorIndex - 1) % fourColorsTilesColors.length
+  }
+
   private undoPlaceTile = (action: PlaceTileAction) => {
     const { payload } = action
     this.board.getZone(payload.zoneId).removeTile()
+    this.restartPrevTurn()
   }
 }
 
