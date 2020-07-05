@@ -7,3 +7,7 @@
 - 사색타일
   - [모바일](https://m.comic.naver.com/bestChallenge/detail.nhn?titleId=734597&no=11)
   - [PC](https://comic.naver.com/bestChallenge/detail.nhn?titleId=734597&no=11)
+
+## 스크린샷
+
+![Screenshot_2020-07-05](./screenshots/Screenshot_2020-07-05.png)
